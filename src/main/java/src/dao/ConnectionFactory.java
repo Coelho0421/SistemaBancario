@@ -12,7 +12,7 @@ public class ConnectionFactory {
         Class.forName(driver);
 
         String user = "root";
-        String senha = "";
+        String senha = "1234";
         String urlBanco = "jdbc:mysql://localhost/sistemabancario";
 
         return DriverManager.getConnection(urlBanco, user, senha);

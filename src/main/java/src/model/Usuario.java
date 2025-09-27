@@ -26,6 +26,10 @@ public class Usuario {
         this.dataCriacao = dataCriacao;
     }
 
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     public Integer getId() {
         return id;
     }

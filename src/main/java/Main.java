@@ -1,6 +1,7 @@
 import src.dao.ConnectionFactory;
 import src.dao.UsuarioDAO;
 import src.model.Usuario;
+import src.service.UsuarioService;
 
 import java.sql.Connection;
 
@@ -8,10 +9,12 @@ public class Main {
 
     public static void main(String[] args) throws Exception{
 
-        Connection conexao = ConnectionFactory.getConnection();
-        UsuarioDAO usuarioDAO = new UsuarioDAO(conexao);
-        Usuario usuario = new Usuario(null, "Felipe", "felipe@gmail.com", "123", null);
+        Connection conn = ConnectionFactory.getConnection();
+        UsuarioDAO usuarioDAO = new UsuarioDAO(conn);
+        UsuarioService usuarioService = new UsuarioService(usuarioDAO);
+        Usuario usuario = new Usuario(null, "Nilson", "Nilson@gmail.com", "234", null);
 
-        usuarioDAO.criar(usuario);
+        usuarioService.cadastrarUsuario(usuario);
+
     }
 }

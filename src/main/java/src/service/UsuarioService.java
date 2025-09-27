@@ -4,10 +4,28 @@
  */
 package src.service;
 
+import src.dao.UsuarioDAO;
+import src.model.Usuario;
+import src.util.Criptografia;
+
 /**
  *
  * @author felip
  */
 public class UsuarioService {
-    
+
+    private UsuarioDAO usuarioDAO;
+
+    public UsuarioService(UsuarioDAO usuarioDAO) {
+        this.usuarioDAO = usuarioDAO;
+    }
+
+    public void cadastrarUsuario(Usuario usuario) throws Exception {
+
+        Criptografia criptografia = new Criptografia();
+        String hashSenha = criptografia.gerarHash(usuario.getSenha());
+        usuario.setSenha(hashSenha);
+
+        usuarioDAO.criar(usuario);
+    }
 }
