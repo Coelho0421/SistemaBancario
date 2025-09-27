@@ -27,4 +27,22 @@ public class UsuarioDAO {
 
         ps.executeUpdate();
     }
+
+    public void atualizar(Usuario usuario) throws Exception{
+        ps = conn.prepareStatement("UPDATE usuarios SET nome = ?, email = ?, senha = ? WHERE id = ?");
+        ps.setString(1, usuario.getNome());
+        ps.setString(2, usuario.getSenha());
+        ps.setString(3, usuario.getSenha());
+        ps.setInt(4, usuario.getId());
+
+        ps.executeUpdate();
+    }
+
+    public void deletar(int id) throws Exception{
+        ps = conn.prepareStatement("DELETE FROM usuario WHERE id = ?");
+        ps.setInt(1, id);
+
+        ps.executeUpdate();
+    }
+
 }

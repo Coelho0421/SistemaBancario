@@ -10,7 +10,7 @@ public class Main {
 
         Connection conexao = ConnectionFactory.getConnection();
         UsuarioDAO usuarioDAO = new UsuarioDAO(conexao);
-        Usuario usuario = new Usuario(null, "Dhavyd", "dhavyd@gmail.com", "123", null);
+        Usuario usuario = new Usuario(null, "Felipe", "felipe@gmail.com", "123", null);
 
         usuarioDAO.criar(usuario);
     }
