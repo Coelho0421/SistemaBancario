@@ -62,5 +62,11 @@ public class Usuario {
         this.dataCriacao = dataCriacao;
     }
     
-    
+    public String toString() {
+        return "ID: " + id +
+                "\nNome: " + nome +
+                "\nEmail: " + email +
+                "\nSenha: " + senha +
+                "\nData de Criação: " + dataCriacao;
+    }
 }

@@ -14,7 +14,7 @@ public class Main {
         UsuarioService usuarioService = new UsuarioService(usuarioDAO);
         Usuario usuario = new Usuario(null, "Nilson", "Nilson@gmail.com", "234", null);
 
-        usuarioService.cadastrarUsuario(usuario);
+        System.out.println(usuarioDAO.buscarPorId(1));
 
     }
 }

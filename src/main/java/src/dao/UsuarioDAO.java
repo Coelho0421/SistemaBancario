@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 public class UsuarioDAO {
 
-    private Connection conn;
+    private final Connection conn;
     private PreparedStatement ps;
     private ResultSet rs;
 
@@ -44,5 +44,19 @@ public class UsuarioDAO {
 
         ps.executeUpdate();
     }
+    
+    public Usuario buscarPorId(int id) throws Exception{
+        ps = conn.prepareStatement("SELECT * FROM usuarios WHERE id = ?");
+        ps.setInt(1, id);
+        rs = ps.executeQuery();
 
+        while (rs.next()) {
+            return new Usuario(rs.getInt("id"), rs.getString("nome"),
+                    rs.getString("email"),
+                    rs.getString("senha"),
+                    rs.getTimestamp("datacriacao").toLocalDateTime());
+        }
+
+        return null;
+    }
 }
