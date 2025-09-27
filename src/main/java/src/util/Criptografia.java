@@ -46,4 +46,7 @@ public class Criptografia {
         return resultado.toString();
     }
     //Gerador de Hash
+    public static String gerarHash(String texto){
+        return Integer.toString(texto.hashCode());       
+    }
 }
