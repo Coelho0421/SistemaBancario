@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UsuarioDAO {
 
@@ -58,5 +60,35 @@ public class UsuarioDAO {
         }
 
         return null;
+    }
+
+    public Usuario buscarPorEmail(String email) throws Exception{
+        ps = conn.prepareStatement("SELECT * FROM usuarios WHERE email = ?");
+        ps.setString(1, email);
+        rs = ps.executeQuery();
+
+        while(rs.next()) {
+            return new Usuario(rs.getInt("id"), rs.getString("nome"),
+                    rs.getString("email"),
+                    rs.getString("senha"),
+                    rs.getTimestamp("datacriacao").toLocalDateTime());
+        }
+
+        return null;
+    }
+
+    public List<Usuario> listarTodos() throws Exception{
+        ps = conn.prepareStatement("SELECT * FROM usuarios");
+        rs = ps.executeQuery();
+        List<Usuario> usuarioList = new ArrayList<>();
+
+        while(rs.next()) {
+            usuarioList.add(new Usuario(rs.getInt("id"), rs.getString("nome"),
+                    rs.getString("email"),
+                    rs.getString("senha"),
+                    rs.getTimestamp("datacriacao").toLocalDateTime()));
+        }
+
+        return usuarioList;
     }
 }
