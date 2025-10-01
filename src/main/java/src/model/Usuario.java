@@ -5,6 +5,7 @@
 package src.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  *
@@ -17,6 +18,8 @@ public class Usuario {
     private String email;
     private String senha;
     private LocalDateTime dataCriacao;
+    private List <Conta> contas;
+
 
     public Usuario(Integer id, String nome, String email, String senha, LocalDateTime dataCriacao) {
         this.id = id;
@@ -24,6 +27,10 @@ public class Usuario {
         this.email = email;
         this.senha = senha;
         this.dataCriacao = dataCriacao;
+    }
+
+    public List<Conta> getContas() {
+        return contas;
     }
 
     public void setSenha(String senha) {

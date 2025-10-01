@@ -5,6 +5,7 @@
 package src.service;
 
 import src.dao.UsuarioDAO;
+import src.model.Conta;
 
 /**
  *
@@ -17,6 +18,11 @@ public class ContaService {
     public ContaService(UsuarioDAO usuarioDAO){
         this.contaDAO = usuarioDAO;
     }
-    
+
+    public void criarConta(Conta conta){
+
+
+
+    }
 
 }
