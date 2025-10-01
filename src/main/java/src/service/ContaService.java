@@ -4,10 +4,19 @@
  */
 package src.service;
 
+import src.dao.UsuarioDAO;
+
 /**
  *
  * @author felip
  */
 public class ContaService {
+
+    private ContaDAO contaDAO;
+
+    public ContaService(UsuarioDAO usuarioDAO){
+        this.contaDAO = usuarioDAO;
+    }
     
+
 }

@@ -8,6 +8,8 @@ import src.dao.UsuarioDAO;
 import src.model.Usuario;
 import src.util.Criptografia;
 
+import java.util.List;
+
 /**
  *
  * @author felip
@@ -28,4 +30,25 @@ public class UsuarioService {
 
         usuarioDAO.criar(usuario);
     }
+    public void atualizarUsuario(Usuario usuario) throws Exception {
+
+        usuarioDAO.atualizar(usuario);
+
+    }
+    public void excluirUsuario(int id) throws Exception {
+
+        usuarioDAO.deletar(id);
+
+    }
+    public Usuario buscarUsarioPorId(int id) throws Exception {
+
+        return usuarioDAO.buscarPorId(id);
+
+    }
+    public List <Usuario> listarUsuarios() throws Exception {
+
+        return usuarioDAO.listarTodos();
+
+    }
+
 }

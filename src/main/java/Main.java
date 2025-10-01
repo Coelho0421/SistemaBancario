@@ -14,7 +14,8 @@ public class Main {
         UsuarioService usuarioService = new UsuarioService(usuarioDAO);
         Usuario usuario = new Usuario(null, "Nilson", "Nilson@gmail.com", "234", null);
 
-        System.out.println(usuarioDAO.buscarPorId(1));
+        System.out.println(usuarioDAO.listarTodos());
 
     }
+
 }
