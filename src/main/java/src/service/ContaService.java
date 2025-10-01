@@ -4,8 +4,10 @@
  */
 package src.service;
 
-import src.dao.UsuarioDAO;
+import src.dao.ContaDAO;
 import src.model.Conta;
+
+import java.util.List;
 
 /**
  *
@@ -15,13 +17,37 @@ public class ContaService {
 
     private ContaDAO contaDAO;
 
-    public ContaService(UsuarioDAO usuarioDAO){
-        this.contaDAO = usuarioDAO;
+    public ContaService(ContaDAO contaDAO){
+        this.contaDAO = contaDAO;
     }
 
-    public void criarConta(Conta conta){
+    public void criarConta(Conta conta, int usuarioid)throws Exception{
 
+        contaDAO.criar(conta, usuarioid);
 
+    }
+
+    public void atualizarConta(Conta conta) throws Exception {
+
+        contaDAO.atualizar(conta);
+
+    }
+
+    public void excluirConta(int id) throws Exception {
+
+        contaDAO.deletar(id);
+
+    }
+
+    public Conta buscarContaPorId(int id) throws Exception {
+
+        return contaDAO.buscarPorId(id);
+
+    }
+
+    public List <Conta> buscarContasPorUsuario(int usuarioId) throws Exception {
+
+        return contaDAO.listarTodos();
 
     }
 
